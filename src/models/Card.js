@@ -31,10 +31,10 @@ const Card = sequelize.define("Card", {
   lista_id: { 
     type: DataTypes.INTEGER, 
     allowNull: false, 
-    field: "lista_id"
+    field: "lista_id" 
   }
 }, {
-  tableName: "tarjetas", // Asegúrate de que Sequelize use el mismo nombre de la tabla
+  tableName: "tarjetas", 
   timestamps: false
 });
 

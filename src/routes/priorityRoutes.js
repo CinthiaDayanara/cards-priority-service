@@ -1,8 +1,8 @@
 const express = require("express");
-const { getAllCards } = require("../controllers/priorityController");
+const { getCards } = require("../controllers/priorityController"); // Importamos el controlador
 const router = express.Router();
 
 // Ruta GET para obtener todas las tarjetas
-router.get("/", getAllCards);
+router.get("/", getCards);
 
 module.exports = router;

@@ -1,15 +1,14 @@
 require("dotenv").config();
 const express = require("express");
 const sequelize = require("./src/config/database");
-const cardRoutes = require("./src/routes/priorityRoutes");
+const cardRoutes = require("./src/routes/priorityRoutes");  // Ruta para las tarjetas
 
 const app = express();
 app.use(express.json());
 
-// Usar las rutas de tarjetas
-app.use("/cards", cardRoutes);  
+app.use("/cards", cardRoutes);  // Ruta para manejar las tarjetas
 
-const PORT = process.env.PORT || 5012;
+const PORT = process.env.PORT || 5012;  // Puerto configurable
 
 sequelize.sync()
   .then(() => {

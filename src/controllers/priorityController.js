@@ -1,11 +1,13 @@
 const { Card } = require('../models/Card');  // Asegúrate de importar el modelo correctamente
 
-exports.getAllCards = async (req, res) => {
+// Obtener todas las tarjetas
+const getCards = async (req, res) => {
   try {
-    const cards = await Card.findAll();  // Usamos el método findAll para obtener todas las tarjetas
-    res.json(cards);
+    const tarjetas = await Card.findAll(); // Usamos Sequelize para encontrar todas las tarjetas
+    res.status(200).json(tarjetas);
   } catch (error) {
-    console.error('Error al obtener tarjetas:', error);
-    res.status(500).send('Error al obtener tarjetas');
+    res.status(500).json({ error: "❌ Error al obtener tarjetas: " + error.message });
   }
 };
+
+module.exports = { getCards };
