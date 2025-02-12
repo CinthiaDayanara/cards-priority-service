@@ -10,7 +10,7 @@ const Card = sequelize.define("Card", {
   titulo: { 
     type: DataTypes.STRING, 
     allowNull: false, 
-    field: "titulo" // Mapeo al nombre exacto de la BD
+    field: "titulo"
   },
   descripcion: { 
     type: DataTypes.TEXT, 
@@ -31,11 +31,11 @@ const Card = sequelize.define("Card", {
   lista_id: { 
     type: DataTypes.INTEGER, 
     allowNull: false, 
-    field: "lista_id" // No se define como FK porque en la BD no está declarada
+    field: "lista_id"
   }
 }, {
-  tableName: "tarjetas", // Asegurar que Sequelize use el mismo nombre de la tabla en la BD
-  timestamps: false // No usamos createdAt ni updatedAt porque ya tenemos "fecha_creacion"
+  tableName: "tarjetas", // Asegúrate de que Sequelize use el mismo nombre de la tabla
+  timestamps: false
 });
 
 module.exports = Card;
