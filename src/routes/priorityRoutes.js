@@ -1,5 +1,5 @@
 const express = require("express");
-const { getCards } = require("../controllers/priorityController"); // Importamos el controlador
+const { getCards } = require("../controllers/priorityController");
 const router = express.Router();
 
 // Ruta GET para obtener todas las tarjetas
