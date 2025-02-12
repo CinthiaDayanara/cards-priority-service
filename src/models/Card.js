@@ -1,7 +1,6 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
 
-// Definir el modelo de la tarjeta
 const Card = sequelize.define("Card", {
   id: { 
     type: DataTypes.INTEGER, 
