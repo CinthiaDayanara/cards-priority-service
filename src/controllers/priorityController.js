@@ -1,13 +1,20 @@
-const { updatePriority } = require("../services/priorityService");
-const { validatePriorityUpdate } = require("../utils/validators");
+const { Card } = require("../models/Card");  // Asegúrate de importar el modelo de la tarjeta
 
-exports.setPriority = async (req, res) => {
+// Controlador para obtener todas las tarjetas
+exports.getAllCards = async (req, res) => {
   try {
-    validatePriorityUpdate(req.body);
+    // Obtener todas las tarjetas de la base de datos
+    const cards = await Card.findAll();
 
-    const updatedCard = await updatePriority(req.body.card_id, req.body.priority);
-    res.status(200).json({ message: "Prioridad actualizada", card: updatedCard });
+    // Si no se encuentran tarjetas, devolver un mensaje adecuado
+    if (cards.length === 0) {
+      return res.status(404).json({ message: "No se encontraron tarjetas" });
+    }
+
+    // Si se encuentran tarjetas, devolverlas como respuesta
+    return res.status(200).json(cards);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    console.error("Error al obtener tarjetas:", error);
+    return res.status(500).json({ message: "Error al obtener tarjetas" });
   }
 };
